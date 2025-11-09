@@ -822,7 +822,7 @@
                                             </svg></a>
                                         <figure>
                                             <a href="index.html" title="Product Title">
-                                                <img src="images/thumb-cucumber.png" class="tab-image">
+                                                <img src="{{ url('assets/frontend/images/thumb-cucumber.png') }}" class="tab-image">
                                             </a>
                                         </figure>
                                         <h3>Sunstar Fresh Melon Juice</h3>
@@ -868,7 +868,7 @@
                                             </svg></a>
                                         <figure>
                                             <a href="index.html" title="Product Title">
-                                                <img src="images/thumb-milk.png" class="tab-image">
+                                                <img src="{{ url('assets/frontend/images/thumb-milk.png') }}" class="tab-image">
                                             </a>
                                         </figure>
                                         <h3>Sunstar Fresh Melon Juice</h3>
@@ -914,7 +914,7 @@
                                             </svg></a>
                                         <figure>
                                             <a href="index.html" title="Product Title">
-                                                <img src="images/thumb-orange-juice.png" class="tab-image">
+                                                <img src="{{ url('assets/frontend/images/thumb-orange-juice.png') }}" class="tab-image">
                                             </a>
                                         </figure>
                                         <h3>Sunstar Fresh Melon Juice</h3>
@@ -959,7 +959,7 @@
                                             </svg></a>
                                         <figure>
                                             <a href="index.html" title="Product Title">
-                                                <img src="images/thumb-raspberries.png" class="tab-image">
+                                                <img src="{{ url('assets/frontend/images/thumb-raspberries.png') }}" class="tab-image">
                                             </a>
                                         </figure>
                                         <h3>Sunstar Fresh Melon Juice</h3>
@@ -1004,7 +1004,7 @@
                                             </svg></a>
                                         <figure>
                                             <a href="index.html" title="Product Title">
-                                                <img src="images/thumb-bananas.png" class="tab-image">
+                                                <img src="{{ url('assets/frontend/images/thumb-bananas.png') }}" class="tab-image">
                                             </a>
                                         </figure>
                                         <h3>Sunstar Fresh Melon Juice</h3>
@@ -1049,7 +1049,7 @@
                                             </svg></a>
                                         <figure>
                                             <a href="index.html" title="Product Title">
-                                                <img src="images/thumb-bananas.png" class="tab-image">
+                                                <img src="{{ url('assets/frontend/images/thumb-bananas.png') }}" class="tab-image">
                                             </a>
                                         </figure>
                                         <h3>Sunstar Fresh Melon Juice</h3>
@@ -1103,7 +1103,7 @@
                                             </svg></a>
                                         <figure>
                                             <a href="index.html" title="Product Title">
-                                                <img src="images/thumb-cucumber.png" class="tab-image">
+                                                <img src="{{ url('assets/frontend/images/thumb-cucumber.png') }}" class="tab-image">
                                             </a>
                                         </figure>
                                         <h3>Sunstar Fresh Melon Juice</h3>
@@ -1148,7 +1148,7 @@
                                             </svg></a>
                                         <figure>
                                             <a href="index.html" title="Product Title">
-                                                <img src="images/thumb-milk.png" class="tab-image">
+                                                <img src="{{ url('assets/frontend/images/thumb-milk.png') }}" class="tab-image">
                                             </a>
                                         </figure>
                                         <h3>Sunstar Fresh Melon Juice</h3>
@@ -1193,7 +1193,7 @@
                                             </svg></a>
                                         <figure>
                                             <a href="index.html" title="Product Title">
-                                                <img src="images/thumb-tomatoes.png" class="tab-image">
+                                                <img src="{{ url('assets/frontend/images/thumb-tomatoes.png') }}" class="tab-image">
                                             </a>
                                         </figure>
                                         <h3>Sunstar Fresh Melon Juice</h3>
@@ -1238,7 +1238,7 @@
                                             </svg></a>
                                         <figure>
                                             <a href="index.html" title="Product Title">
-                                                <img src="images/thumb-tomatoketchup.png" class="tab-image">
+                                                <img src="{{ url('assets/frontend/images/thumb-tomatoketchup.png') }}" class="tab-image">
                                             </a>
                                         </figure>
                                         <h3>Sunstar Fresh Melon Juice</h3>
@@ -1283,7 +1283,7 @@
                                             </svg></a>
                                         <figure>
                                             <a href="index.html" title="Product Title">
-                                                <img src="images/thumb-bananas.png" class="tab-image">
+                                                <img src="{{ url('assets/frontend/images/thumb-bananas.png') }}" class="tab-image">
                                             </a>
                                         </figure>
                                         <h3>Sunstar Fresh Melon Juice</h3>
@@ -1328,7 +1328,7 @@
                                             </svg></a>
                                         <figure>
                                             <a href="index.html" title="Product Title">
-                                                <img src="images/thumb-bananas.png" class="tab-image">
+                                                <img src="{{ url('assets/frontend/images/thumb-bananas.png') }}" class="tab-image">
                                             </a>
                                         </figure>
                                         <h3>Sunstar Fresh Melon Juice</h3>
