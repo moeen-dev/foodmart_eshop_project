@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,3 +15,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [\App\Http\Controllers\Frontend\HomeController::class, 'index'])->name('home');
+
+
+Route::prefix('admin')->group(function () {
+    // Route::get('/', function() {
+    //     return redirect()->route();
+    // })
+
+    Route::get('/admin-dashboard', [\App\Http\Controllers\Backend\HomeController::class, 'index'])->name('admin.dashboard');
+});
