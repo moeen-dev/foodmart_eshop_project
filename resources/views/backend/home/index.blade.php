@@ -121,7 +121,7 @@
                     <div class="card-body" id="top-5-scroll">
                         <ul class="list-unstyled list-unstyled-border">
                             <li class="media">
-                                <img class="mr-3 rounded" width="55" src="assets/img/products/product-3-50.png"
+                                <img class="mr-3 rounded" width="55" src="{{ url('assets/backend/img/products/product-3-50.png') }}"
                                     alt="product">
                                 <div class="media-body">
                                     <div class="float-right">
@@ -143,7 +143,7 @@
                                 </div>
                             </li>
                             <li class="media">
-                                <img class="mr-3 rounded" width="55" src="assets/img/products/product-4-50.png"
+                                <img class="mr-3 rounded" width="55" src="{{ url('assets/backend/img/products/product-4-50.png') }}"
                                     alt="product">
                                 <div class="media-body">
                                     <div class="float-right">
@@ -165,7 +165,7 @@
                                 </div>
                             </li>
                             <li class="media">
-                                <img class="mr-3 rounded" width="55" src="assets/img/products/product-1-50.png"
+                                <img class="mr-3 rounded" width="55" src="{{ url('assets/backend/img/products/product-1-50.png') }}"
                                     alt="product">
                                 <div class="media-body">
                                     <div class="float-right">
@@ -187,7 +187,7 @@
                                 </div>
                             </li>
                             <li class="media">
-                                <img class="mr-3 rounded" width="55" src="assets/img/products/product-3-50.png"
+                                <img class="mr-3 rounded" width="55" src="{{ url('assets/backend/img/products/product-3-50.png') }}"
                                     alt="product">
                                 <div class="media-body">
                                     <div class="float-right">
@@ -209,7 +209,7 @@
                                 </div>
                             </li>
                             <li class="media">
-                                <img class="mr-3 rounded" width="55" src="assets/img/products/product-5-50.png"
+                                <img class="mr-3 rounded" width="55" src="{{ url('assets/backend/img/products/product-5-50.png') }}"
                                     alt="product">
                                 <div class="media-body">
                                     <div class="float-right">
@@ -256,7 +256,7 @@
                             <div>
                                 <div class="product-item pb-3">
                                     <div class="product-image">
-                                        <img alt="image" src="assets/img/products/product-4-50.png" class="img-fluid">
+                                        <img alt="image" src="{{ url('assets/backend/img/products/product-4-50.png') }}" class="img-fluid">
                                     </div>
                                     <div class="product-details">
                                         <div class="product-name">iBook Pro 2018</div>
@@ -277,7 +277,7 @@
                             <div>
                                 <div class="product-item">
                                     <div class="product-image">
-                                        <img alt="image" src="assets/img/products/product-3-50.png" class="img-fluid">
+                                        <img alt="image" src="{{ url('assets/backend/img/products/product-3-50.png') }}" class="img-fluid">
                                     </div>
                                     <div class="product-details">
                                         <div class="product-name">oPhone S9 Limited</div>
@@ -298,7 +298,7 @@
                             <div>
                                 <div class="product-item">
                                     <div class="product-image">
-                                        <img alt="image" src="assets/img/products/product-1-50.png" class="img-fluid">
+                                        <img alt="image" src="{{ url('assets/backend/img/products/product-1-50.png') }}" class="img-fluid">
                                     </div>
                                     <div class="product-details">
                                         <div class="product-name">Headphone Blitz</div>
@@ -332,7 +332,7 @@
                                 <ul class="list-unstyled list-unstyled-border list-unstyled-noborder mb-0">
                                     <li class="media">
                                         <img class="img-fluid mt-1 img-shadow"
-                                            src="assets/modules/flag-icon-css/flags/4x3/id.svg" alt="image" width="40">
+                                            src="{{ url('assets/backend/modules/flag-icon-css/flags/4x3/id.svg') }}" alt="image" width="40">
                                         <div class="media-body ml-3">
                                             <div class="media-title">Indonesia</div>
                                             <div class="text-small text-muted">3,282 <i
@@ -341,7 +341,7 @@
                                     </li>
                                     <li class="media">
                                         <img class="img-fluid mt-1 img-shadow"
-                                            src="assets/modules/flag-icon-css/flags/4x3/my.svg" alt="image" width="40">
+                                            src="{{ url('assets/backend/modules/flag-icon-css/flags/4x3/my.svg') }}" alt="image" width="40">
                                         <div class="media-body ml-3">
                                             <div class="media-title">Malaysia</div>
                                             <div class="text-small text-muted">2,976 <i
@@ -350,7 +350,7 @@
                                     </li>
                                     <li class="media">
                                         <img class="img-fluid mt-1 img-shadow"
-                                            src="assets/modules/flag-icon-css/flags/4x3/us.svg" alt="image" width="40">
+                                            src="{{ url('assets/backend/modules/flag-icon-css/flags/4x3/us.svg') }}" alt="image" width="40">
                                         <div class="media-body ml-3">
                                             <div class="media-title">United States</div>
                                             <div class="text-small text-muted">1,576 <i
@@ -364,7 +364,7 @@
                                 <ul class="list-unstyled list-unstyled-border list-unstyled-noborder mb-0">
                                     <li class="media">
                                         <img class="img-fluid mt-1 img-shadow"
-                                            src="assets/modules/flag-icon-css/flags/4x3/id.svg" alt="image" width="40">
+                                            src="{{ url('assets/backend/modules/flag-icon-css/flags/4x3/id.svg') }}" alt="image" width="40">
                                         <div class="media-body ml-3">
                                             <div class="media-title">Indonesia</div>
                                             <div class="text-small text-muted">3,486 <i
@@ -373,7 +373,7 @@
                                     </li>
                                     <li class="media">
                                         <img class="img-fluid mt-1 img-shadow"
-                                            src="assets/modules/flag-icon-css/flags/4x3/ps.svg" alt="image" width="40">
+                                            src="{{ url('assets/backend/modules/flag-icon-css/flags/4x3/ps.svg') }}" alt="image" width="40">
                                         <div class="media-body ml-3">
                                             <div class="media-title">Palestine</div>
                                             <div class="text-small text-muted">3,182 <i
@@ -382,7 +382,7 @@
                                     </li>
                                     <li class="media">
                                         <img class="img-fluid mt-1 img-shadow"
-                                            src="assets/modules/flag-icon-css/flags/4x3/de.svg" alt="image" width="40">
+                                            src="{{ url('assets/backend/modules/flag-icon-css/flags/4x3/de.svg') }}" alt="image" width="40">
                                         <div class="media-body ml-3">
                                             <div class="media-title">Germany</div>
                                             <div class="text-small text-muted">2,317 <i
