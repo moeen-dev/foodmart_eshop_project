@@ -36,7 +36,7 @@
                             </div>
 
                             <div class="card-body">
-                                <form method="POST" action="#" class="needs-validation" novalidate="">
+                                <form method="POST" action="{{ route('admin.authenticate') }}" class="needs-validation" novalidate>
                                     <div class="form-group">
                                         <label for="email">Email <span class="text-danger">*</span></label>
                                         <input id="email" type="email" class="form-control" name="email" tabindex="1"
