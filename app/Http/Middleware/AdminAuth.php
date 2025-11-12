@@ -16,8 +16,8 @@ class AdminAuth
     public function handle(Request $request, Closure $next): Response
     {
         if (!auth()->check()) {
-            flash()->addError('Please login');
-            return redirect()->route('home');
+            flash()->addError('Please login to access!');
+            return redirect()->route('admin.login');
         }
         return $next($request);
     }
