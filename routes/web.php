@@ -21,6 +21,7 @@ Route::prefix('admin')->group(function () {
     // Route::get('/', function() {
     //     return redirect()->route();
     // })
-
-    Route::get('/admin-dashboard', [\App\Http\Controllers\Backend\HomeController::class, 'index'])->name('admin.dashboard');
+    Route::middleware('admin.auth')->group(function () {
+        Route::get('/admin-dashboard', [\App\Http\Controllers\Backend\HomeController::class, 'index'])->name('admin.dashboard');
+    });
 });
