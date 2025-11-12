@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Backend\AuthController;
+use App\Http\Controllers\Frontend\HomeController;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 
@@ -18,10 +20,13 @@ Route::get('/', [\App\Http\Controllers\Frontend\HomeController::class, 'index'])
 
 
 Route::prefix('admin')->group(function () {
-    // Route::get('/', function() {
-    //     return redirect()->route();
-    // })
+    Route::get('/', function() {
+        return redirect()->route('admin.login');
+    });
+    // Admin login route
+    Route::get('/admin-login', [AuthController::class, 'login'])->name('admin.login');
+
     Route::middleware('admin.auth')->group(function () {
-        Route::get('/admin-dashboard', [\App\Http\Controllers\Backend\HomeController::class, 'index'])->name('admin.dashboard');
+        Route::get('/admin-dashboard', [HomeController::class, 'index'])->name('admin.dashboard');
     });
 });
