@@ -16,7 +16,7 @@ class AdminAuth
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!auth()->check() || !Auth::user()->is_admin) {
+        if (!Auth::check() || !Auth::user()->is_admin) {
             flash()->addError('Please login to access!');
             return redirect()->route('admin.login');
         }
