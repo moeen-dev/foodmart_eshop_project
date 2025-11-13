@@ -26,6 +26,7 @@ Route::prefix('admin')->group(function () {
     // Admin login route
     Route::get('/admin-login', [AuthController::class, 'login'])->name('admin.login');
     Route::post('/admin-login', [AuthController::class, 'authenticate'])->name('admin.authenticate');
+    Route::post('/admin-logout', [AuthController::class, 'logout'])->name('admin.logout');
 
     Route::middleware('admin.auth')->group(function () {
         Route::get('/admin-dashboard', [BackendHomeController::class, 'index'])->name('admin.dashboard');

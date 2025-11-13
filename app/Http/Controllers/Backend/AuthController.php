@@ -41,4 +41,20 @@ class AuthController extends Controller
         flash()->addError('Invalid email or passowrd!');
         return redirect()->route('admin.login');
     }
+
+    public function logout(Request $request)
+    {
+        if (Auth::check()) {
+            Auth::logout();
+
+            // clear session data
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
+
+            flash()->addSuccess('You have successfully logged out!');
+        }
+
+        // Redirect route
+        return redirect()->route('admin.login');
+    }
 }
