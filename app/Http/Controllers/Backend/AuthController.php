@@ -10,6 +10,10 @@ class AuthController extends Controller
 {
     public function login()
     {
+        if (Auth::check()) {
+            flash()->addSuccess('You are already logged in!');
+            return redirect()->route('admin.dashboard');
+        }
         return view('backend.auth.login');
     }
 
