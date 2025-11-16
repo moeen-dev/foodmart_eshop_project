@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\Backend\AuthController;
+use App\Http\Controllers\Backend\CategoryController as BackendCategoryController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Backend\HomeController as BackendHomeController;
+use App\Http\Controllers\Frontend\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/category', [CategoryController::class, 'index'])->name('frontend.category');
 
 
 Route::prefix('admin')->group(function () {
@@ -30,5 +33,6 @@ Route::prefix('admin')->group(function () {
 
     Route::middleware('admin.auth')->group(function () {
         Route::get('/admin-dashboard', [BackendHomeController::class, 'index'])->name('admin.dashboard');
+        Route::resource('/product-category', [BackendCategoryController::class]);
     });
 });
