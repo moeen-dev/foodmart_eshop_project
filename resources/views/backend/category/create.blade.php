@@ -1,6 +1,9 @@
 @extends('backend.layouts.index')
 @section('title', 'Create Category')
 @section('content')
+@push('style')
+<link rel="stylesheet" href="{{ asset('assets/backend/modules/dropify/css/dropify.css') }}">    
+@endpush
 <div class="main-content">
     <section class="section">
         <div class="section-header">
@@ -50,4 +53,10 @@
         </div>
     </section>
 </div>
+@push('scripts')
+    <script src="{{ asset('assets/backend/modules/dropify/js/dropify.js') }}"></script>
+    <script>
+        $('#category_img').dropify();
+    </script>
+@endpush
 @endsection

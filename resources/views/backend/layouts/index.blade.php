@@ -19,7 +19,8 @@
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('assets/backend/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/backend/css/components.css') }}">
-    <!-- Start GA -->
+
+    @stack('style')
 </head>
 
 <body>
@@ -67,6 +68,7 @@
     <!-- Template JS File -->
     <script src="{{ asset('assets/backend/js/scripts.js') }}"></script>
     <script src="{{ asset('assets/backend/js/custom.js') }}"></script>
+    @stack('scripts')
 </body>
 
 </html>
