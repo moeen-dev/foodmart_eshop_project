@@ -8,15 +8,15 @@
         </div>
         <ul class="sidebar-menu">
             <li class="menu-header">Dashboard</li>
-            <li class="dropdown active">
+            <li class="dropdown {{ Route::is('admin.dashboard') ? 'active' : ''}}">
                 <a href="{{ route('admin.dashboard') }}" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
             </li>
 
-            <li class="dropdown active">
-                <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Dashboard</span></a>
+            <li class="dropdown {{ Route::is('product-category.*') ? 'active' : ''}}">
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Category</span></a>
                 <ul class="dropdown-menu">
-                    <li><a class="nav-link" href="index-0.html">General Dashboard</a></li>
-                    <li class=active><a class="nav-link" href="index.html">Ecommerce Dashboard</a></li>
+                    <li class="{{ Route::is('product-category.index') ? 'active' : ''}}"><a class="nav-link" href="{{ route('product-category.index') }}">All Category</a></li>
+                    <li class="{{ Route::is('product-category.create') ? 'active' : ''}}"><a class="nav-link" href="{{ route('product-category.create') }}">Create Category</a></li>
                 </ul>
             </li>
             
