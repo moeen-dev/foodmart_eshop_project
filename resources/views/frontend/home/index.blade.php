@@ -1,4 +1,4 @@
-@extends('layouts.frontend')
+@extends('frontend.layouts.frontend')
 @section('content')
 <section class="py-3" style="background-image: url({{ url('assets/frontend/images/background-pattern.jpg') }}); 
            background-repeat: no-repeat; 
