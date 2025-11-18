@@ -1,4 +1,5 @@
-@extends('backend.layouts.index')
+@extends('backend.app')
+@section('title', 'Home')
 @section('content')
 <div class="main-content">
     <section class="section">
