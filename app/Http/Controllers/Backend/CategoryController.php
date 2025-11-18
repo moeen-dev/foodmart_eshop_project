@@ -31,13 +31,17 @@ class CategoryController extends Controller
     {
         $validated = $request->validate(
             [
-                'category_name' => 'required|string|max:255',
-                'category_slug' => 'required',
+                'category_name' => 'required|string|max:255|unique:categories,category_name',
+                'category_slug' => 'required|unique:categories,category_slug',
                 'category_img' => 'required|image|mimes:jpg,jpeg,png,webp|max:2048'
             ],
             [
                 'category_name.required' => 'Please enter a category name.',
+                'category_name.unique' => 'This category name already exists.',
+
                 'category_slug.required' => 'Category slug is required.',
+                'category_slug.unique' => 'This category slug already exists.',
+
                 'category_img.required' => 'Please enter a category image.',
                 'category_img.image' => 'The upload file must be an image.',
                 'category_img.mimes' => 'Image must be JPG, JPEG, PNG and WEBP.',
@@ -46,16 +50,20 @@ class CategoryController extends Controller
 
         if ($request->hasFile('category_img')) {
             $file = $request->file('category_img');
-            $extension = $file->getClientOriginalName();
-            $filename = time() . '-category_img-' . $extension;
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '-cat-img-' . $extension;
             $file->move('upload/images/', $filename);
-            $input['category_img'] = $filename;
+            $validated['category_img'] = $filename;
         }
 
-        Category::create($validated);
+        $created = Category::create($validated);
 
-        flash()->addSuccess('Category save successfully!');
+        if (!$created) {
+            flash()->addError('Something went wrong! Category could not be saved.');
+            return redirect()->back();
+        }
 
+        flash()->addSuccess('Category saved successfully!');
         return redirect()->back();
     }
 
