@@ -1,8 +1,8 @@
-@extends('backend.layouts.index')
+@extends('backend.app')
 @section('title', 'Create Category')
 @section('content')
 @push('style')
-<link rel="stylesheet" href="{{ asset('assets/backend/modules/dropify/css/dropify.css') }}">    
+<link rel="stylesheet" href="{{ asset('assets/backend/modules/dropify/css/dropify.css') }}">
 @endpush
 <div class="main-content">
     <section class="section">
@@ -23,7 +23,8 @@
                             <h4>Category Create From</h4>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('product-category.store') }}" method="post" enctype="multipart/form-data">
+                            <form action="{{ route('product-category.store') }}" method="post"
+                                enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
                                     <div class="form-group col-md-6">
@@ -41,7 +42,8 @@
 
                                 <div class="form-group">
                                     <label for="category_img">Category Image <span class="text-danger">*</span></label>
-                                    <input type="file" class="form-control" name="category_img" id="category_img" required>
+                                    <input type="file" class="category_img" name="category_img" id="category_img"
+                                        required>
                                 </div>
 
                                 <button type="submit" name="submit" class="btn btn-primary">Save</button>
@@ -54,9 +56,18 @@
     </section>
 </div>
 @push('scripts')
-    <script src="{{ asset('assets/backend/modules/dropify/js/dropify.js') }}"></script>
-    <script>
-        $('#category_img').dropify();
-    </script>
+<script src="{{ asset('assets/backend/modules/dropify/js/dropify.js') }}"></script>
+<script>
+    // Dropify
+        $('.category_img').dropify();
+
+        // Text for slug
+        $('#category_name').keyup(function() {
+            var Text = $(this).val();
+            Text = Text.toLowerCase();
+            Text = Text.replace(/[^a-zA-Z0-9]+/g, '-');
+            $('#category_slug').val(Text);
+        });
+</script>
 @endpush
 @endsection
