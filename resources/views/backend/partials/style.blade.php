@@ -15,5 +15,3 @@
 <!-- Template CSS -->
 <link rel="stylesheet" href="{{ asset('assets/backend/css/style.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/backend/css/components.css') }}">
-
-@stack('style')

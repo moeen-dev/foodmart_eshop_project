@@ -20,4 +20,3 @@
 <!-- Template JS File -->
 <script src="{{ asset('assets/backend/js/scripts.js') }}"></script>
 <script src="{{ asset('assets/backend/js/custom.js') }}"></script>
-@stack('scripts')

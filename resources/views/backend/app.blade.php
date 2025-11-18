@@ -4,6 +4,7 @@
 <head>
     {{-- Style Components --}}
     @include('backend.partials.style')
+    @stack('styles')
 </head>
 
 <body>
@@ -15,8 +16,10 @@
             @include('backend.partials.side')
 
             <!-- Main Content -->
-            @yield('content')
-            
+            <div class="main-content">
+                @yield('content')
+            </div>
+
             <footer class="main-footer">
                 <div class="footer-left">
                     Copyright &copy; 2018 <div class="bullet"></div> Design By <a href="https://nauval.in/">Muhamad
@@ -31,6 +34,7 @@
 
     {{-- Scripts --}}
     @include('backend.partials.scripts')
+    @stack('scripts')
 </body>
 
 </html>
