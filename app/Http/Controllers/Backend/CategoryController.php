@@ -63,7 +63,7 @@ class CategoryController extends Controller
             Category::create($validated);
 
             flash()->addSuccess('Category saved successfully!');
-            return redirect()->back();
+            return redirect()->route('product-category.index');
         } catch (ValidationException $e) {
             // Show each validation error separately
             $errors = $e->errors(); // array of errors
@@ -109,6 +109,23 @@ class CategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try {
+            $category = Category::findOrFail($id);
+
+            $filename = $category->category_img;
+            $imagePath = public_path('upload/images/' . $filename);
+
+            if (file_exists($imagePath)) {
+                unlink($imagePath);
+            }
+
+            $category->delete();
+
+            flash()->addSuccess('Deleted Success');
+            return redirect()->back();
+        } catch (\Exception $e) {
+            flash()->addError('Error: ' . $e->getMessage());
+            return redirect()->back()->withInput();
+        }
     }
 }

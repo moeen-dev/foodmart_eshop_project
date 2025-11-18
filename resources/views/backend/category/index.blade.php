@@ -29,18 +29,54 @@
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">First</th>
-                                    <th scope="col">Last</th>
-                                    <th scope="col">Handle</th>
+                                    <th scope="col">Category Image</th>
+                                    <th scope="col">Category Name</th>
+                                    <th scope="col">Category Slug</th>
+                                    <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @if ($categories->count() > 0)
+                                @foreach ($categories as $category)
                                 <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
+                                    <th scope="row">{{ $loop->index + 1}}</th>
+                                    <td>
+                                        <img src="{{ asset('upload/images/' . $category->category_img) }}"
+                                            alt="{{ $category->category_name }}">
+                                    </td>
+                                    <td>{{ $category->category_name }}</td>
+                                    <td>{{ $category->category_slug}}</td>
+                                    <td class="d-flex justify-content-center gap-3">
+                                        <a href="" class="btn btn-primary mr-2" data-toogle="tooltip"
+                                            title="Edit Category">Edit</a>
+                                            
+                                        {{-- Delete Form --}}
+                                        <form id="delete-category-{{ $category->id }}"
+                                            action="{{ route('product-category.destroy', $category->id) }}"
+                                            method="POST" style="display: none;">
+                                            @csrf
+                                            @method('DELETE')
+                                        </form>
+
+                                        {{-- Delete Button --}}
+                                        <button class="btn btn-danger trigger--fire-modal-7"
+                                            data-confirm="Delete Category?|Are you sure you want to delete this category?"
+                                            data-confirm-yes="document.getElementById('delete-category-{{ $category->id }}').submit();">
+                                            Delete
+                                        </button>
+                                    </td>
                                 </tr>
+                                @endforeach
+                                @else
+                                <tr>
+                                    <td colspan="4" class="text-center text-danger">
+                                        <p class="text-danger">No Data Found!</p>
+                                        <a href="{{ route('product-category.create') }}" class="btn btn-primary">Create
+                                            a new
+                                            one</a>
+                                    </td>
+                                </tr>
+                                @endif
                             </tbody>
                         </table>
                     </div>
