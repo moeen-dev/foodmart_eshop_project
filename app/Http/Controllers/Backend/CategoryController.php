@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 
 class CategoryController extends Controller
 {
@@ -29,42 +30,53 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate(
-            [
-                'category_name' => 'required|string|max:255|unique:categories,category_name',
-                'category_slug' => 'required|unique:categories,category_slug',
-                'category_img' => 'required|image|mimes:jpg,jpeg,png,webp|max:2048'
-            ],
-            [
-                'category_name.required' => 'Please enter a category name.',
-                'category_name.unique' => 'This category name already exists.',
+        try {
+            $validated = $request->validate(
+                [
+                    'category_name' => 'required|string|max:255|unique:categories,category_name',
+                    'category_slug' => 'required|unique:categories,category_slug',
+                    'category_img' => 'required|image|mimes:jpg,jpeg,png,webp|max:2048'
+                ],
+                [
+                    'category_name.required' => 'Please enter a category name.',
+                    'category_name.unique' => 'This category name already exists.',
 
-                'category_slug.required' => 'Category slug is required.',
-                'category_slug.unique' => 'This category slug already exists.',
+                    'category_slug.required' => 'Category slug is required.',
+                    'category_slug.unique' => 'This category slug already exists.',
 
-                'category_img.required' => 'Please enter a category image.',
-                'category_img.image' => 'The upload file must be an image.',
-                'category_img.mimes' => 'Image must be JPG, JPEG, PNG and WEBP.',
-            ]
-        );
+                    'category_img.required' => 'Please enter a category image.',
+                    'category_img.image' => 'The upload file must be an image.',
+                    'category_img.mimes' => 'Image must be JPG, JPEG, PNG and WEBP.',
+                ]
+            );
 
-        if ($request->hasFile('category_img')) {
-            $file = $request->file('category_img');
-            $extension = $file->getClientOriginalExtension();
-            $filename = time() . '-cat-img-' . $extension;
-            $file->move('upload/images/', $filename);
-            $validated['category_img'] = $filename;
-        }
+            if ($request->hasFile('category_img')) {
+                $file = $request->file('category_img');
+                $extension = $file->getClientOriginalExtension();
+                $filename = time() . '-cat-img-' . $extension;
+                $file->move('upload/images/', $filename);
+                $validated['category_img'] = $filename;
+            }
 
-        $created = Category::create($validated);
+            // Store Category
+            Category::create($validated);
 
-        if (!$created) {
-            flash()->addError('Something went wrong! Category could not be saved.');
+            flash()->addSuccess('Category saved successfully!');
             return redirect()->back();
-        }
+        } catch (ValidationException $e) {
+            // Show each validation error separately
+            $errors = $e->errors(); // array of errors
+            foreach ($errors as $fieldErrors) {
+                foreach ($fieldErrors as $error) {
+                    flash()->addError($error);
+                }
+            }
 
-        flash()->addSuccess('Category saved successfully!');
-        return redirect()->back();
+            return redirect()->back()->withInput();
+        } catch (\Exception $e) {
+            flash()->addError('Error: ' . $e->getMessage());
+            return redirect()->back()->withInput();
+        }
     }
 
     /**
