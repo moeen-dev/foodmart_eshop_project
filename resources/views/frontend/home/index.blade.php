@@ -1,197 +1,13 @@
 @extends('frontend.app')
 @section('title', 'Home')
 @section('content')
-<section class="py-3" style="background-image: url({{ url('assets/frontend/images/background-pattern.jpg') }}); 
-           background-repeat: no-repeat; 
-           background-size: cover;">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
 
-                <div class="banner-blocks">
+{{-- Homepage Banner or Hero section --}}
+@include('frontend.home.banner')
 
-                    <div class="banner-ad large bg-info block-1">
+{{-- Homepage Category Section --}}
+@include('frontend.home.category')
 
-                        <div class="swiper main-swiper">
-                            <div class="swiper-wrapper">
-
-                                <div class="swiper-slide">
-                                    <div class="row banner-content p-5">
-                                        <div class="content-wrapper col-md-7">
-                                            <div class="categories my-3">100% natural</div>
-                                            <h3 class="display-4">Fresh Smoothie & Summer Juice</h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dignissim
-                                                massa diam elementum.</p>
-                                            <a href="#"
-                                                class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1 px-4 py-3 mt-3">Shop
-                                                Now</a>
-                                        </div>
-                                        <div class="img-wrapper col-md-5">
-                                            <img src="{{ url('assets/frontend/images/product-thumb-1.png') }}" class="img-fluid">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="swiper-slide">
-                                    <div class="row banner-content p-5">
-                                        <div class="content-wrapper col-md-7">
-                                            <div class="categories mb-3 pb-3">100% natural</div>
-                                            <h3 class="banner-title">Fresh Smoothie & Summer Juice</h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dignissim
-                                                massa diam elementum.</p>
-                                            <a href="#"
-                                                class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1">Shop
-                                                Collection</a>
-                                        </div>
-                                        <div class="img-wrapper col-md-5">
-                                            <img src="{{ url('assets/frontend/images/product-thumb-1.png') }}" class="img-fluid">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="swiper-slide">
-                                    <div class="row banner-content p-5">
-                                        <div class="content-wrapper col-md-7">
-                                            <div class="categories mb-3 pb-3">100% natural</div>
-                                            <h3 class="banner-title">Heinz Tomato Ketchup</h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dignissim
-                                                massa diam elementum.</p>
-                                            <a href="#"
-                                                class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1">Shop
-                                                Collection</a>
-                                        </div>
-                                        <div class="img-wrapper col-md-5">
-                                            <img src="{{ url('assets/frontend/images/product-thumb-2.png') }}" class="img-fluid">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="swiper-pagination"></div>
-
-                        </div>
-                    </div>
-
-                    <div class="banner-ad bg-success-subtle block-2"
-                        style="background:url({{ url('assets/frontend/images/ad-image-1.png') }}) no-repeat;background-position: right bottom">
-                        <div class="row banner-content p-5">
-
-                            <div class="content-wrapper col-md-7">
-                                <div class="categories sale mb-3 pb-3">20% off</div>
-                                <h3 class="banner-title">Fruits & Vegetables</h3>
-                                <a href="#" class="d-flex align-items-center nav-link">Shop Collection <svg width="24"
-                                        height="24">
-                                        <use xlink:href="#arrow-right"></use>
-                                    </svg></a>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="banner-ad bg-danger block-3"
-                        style="background:url({{ url('assets/frontend/images/ad-image-2.png') }}) no-repeat;background-position: right bottom">
-                        <div class="row banner-content p-5">
-
-                            <div class="content-wrapper col-md-7">
-                                <div class="categories sale mb-3 pb-3">15% off</div>
-                                <h3 class="item-title">Baked Products</h3>
-                                <a href="#" class="d-flex align-items-center nav-link">Shop Collection <svg width="24"
-                                        height="24">
-                                        <use xlink:href="#arrow-right"></use>
-                                    </svg></a>
-                            </div>
-
-                        </div>
-                    </div>
-
-                </div>
-                <!-- / Banner Blocks -->
-
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="py-5 overflow-hidden">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-
-                <div class="section-header d-flex flex-wrap justify-content-between mb-5">
-                    <h2 class="section-title">Category</h2>
-
-                    <div class="d-flex align-items-center">
-                        <a href="#" class="btn-link text-decoration-none">View All Categories →</a>
-                        <div class="swiper-buttons">
-                            <button class="swiper-prev category-carousel-prev btn btn-yellow">❮</button>
-                            <button class="swiper-next category-carousel-next btn btn-yellow">❯</button>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-
-                <div class="category-carousel swiper">
-                    <div class="swiper-wrapper">
-                        <a href="index.html" class="nav-link category-item swiper-slide">
-                            <img src="{{ url('assets/frontend/images/icon-vegetables-broccoli.png') }}" alt="Category Thumbnail">
-                            <h3 class="category-title">Fruits & Veges</h3>
-                        </a>
-                        <a href="index.html" class="nav-link category-item swiper-slide">
-                            <img src="{{ url('assets/frontend/images/icon-bread-baguette.png') }}" alt="Category Thumbnail">
-                            <h3 class="category-title">Breads & Sweets</h3>
-                        </a>
-                        <a href="index.html" class="nav-link category-item swiper-slide">
-                            <img src="{{ url('assets/frontend/images/icon-soft-drinks-bottle.png') }}" alt="Category Thumbnail">
-                            <h3 class="category-title">Fruits & Veges</h3>
-                        </a>
-                        <a href="index.html" class="nav-link category-item swiper-slide">
-                            <img src="{{ url('assets/frontend/images/icon-wine-glass-bottle.png') }}" alt="Category Thumbnail">
-                            <h3 class="category-title">Fruits & Veges</h3>
-                        </a>
-                        <a href="index.html" class="nav-link category-item swiper-slide">
-                            <img src="{{ url('assets/frontend/images/icon-animal-products-drumsticks.png') }}" alt="Category Thumbnail">
-                            <h3 class="category-title">Fruits & Veges</h3>
-                        </a>
-                        <a href="index.html" class="nav-link category-item swiper-slide">
-                            <img src="{{ url('assets/frontend/images/icon-bread-herb-flour.png') }}" alt="Category Thumbnail">
-                            <h3 class="category-title">Fruits & Veges</h3>
-                        </a>
-                        <a href="index.html" class="nav-link category-item swiper-slide">
-                            <img src="{{ url('assets/frontend/images/icon-vegetables-broccoli.png') }}" alt="Category Thumbnail">
-                            <h3 class="category-title">Fruits & Veges</h3>
-                        </a>
-                        <a href="index.html" class="nav-link category-item swiper-slide">
-                            <img src="{{ url('assets/frontend/images/icon-vegetables-broccoli.png') }}" alt="Category Thumbnail">
-                            <h3 class="category-title">Fruits & Veges</h3>
-                        </a>
-                        <a href="index.html" class="nav-link category-item swiper-slide">
-                            <img src="{{ url('assets/frontend/images/icon-vegetables-broccoli.png') }}" alt="Category Thumbnail">
-                            <h3 class="category-title">Fruits & Veges</h3>
-                        </a>
-                        <a href="index.html" class="nav-link category-item swiper-slide">
-                            <img src="{{ url('assets/frontend/images/icon-vegetables-broccoli.png') }}" alt="Category Thumbnail">
-                            <h3 class="category-title">Fruits & Veges</h3>
-                        </a>
-                        <a href="index.html" class="nav-link category-item swiper-slide">
-                            <img src="{{ url('assets/frontend/images/icon-vegetables-broccoli.png') }}" alt="Category Thumbnail">
-                            <h3 class="category-title">Fruits & Veges</h3>
-                        </a>
-                        <a href="index.html" class="nav-link category-item swiper-slide">
-                            <img src="{{ url('assets/frontend/images/icon-vegetables-broccoli.png') }}" alt="Category Thumbnail">
-                            <h3 class="category-title">Fruits & Veges</h3>
-                        </a>
-
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-</section>
 
 
 <section class="py-5 overflow-hidden">
@@ -224,8 +40,8 @@
                             <div class="card mb-3 p-3 rounded-4 shadow border-0">
                                 <div class="row g-0">
                                     <div class="col-md-4">
-                                        <img src="{{ url('assets/frontend/images/product-thumb-11.jpg') }}" class="img-fluid rounded"
-                                            alt="Card title">
+                                        <img src="{{ url('assets/frontend/images/product-thumb-11.jpg') }}"
+                                            class="img-fluid rounded" alt="Card title">
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body py-0">
@@ -240,8 +56,8 @@
                             <div class="card mb-3 p-3 rounded-4 shadow border-0">
                                 <div class="row g-0">
                                     <div class="col-md-4">
-                                        <img src="{{ url('assets/frontend/images/product-thumb-12.jpg') }}" class="img-fluid rounded"
-                                            alt="Card title">
+                                        <img src="{{ url('assets/frontend/images/product-thumb-12.jpg') }}"
+                                            class="img-fluid rounded" alt="Card title">
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body py-0">
@@ -256,8 +72,8 @@
                             <div class="card mb-3 p-3 rounded-4 shadow border-0">
                                 <div class="row g-0">
                                     <div class="col-md-4">
-                                        <img src="{{ url('assets/frontend/images/product-thumb-13.jpg') }}" class="img-fluid rounded"
-                                            alt="Card title">
+                                        <img src="{{ url('assets/frontend/images/product-thumb-13.jpg') }}"
+                                            class="img-fluid rounded" alt="Card title">
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body py-0">
@@ -272,8 +88,8 @@
                             <div class="card mb-3 p-3 rounded-4 shadow border-0">
                                 <div class="row g-0">
                                     <div class="col-md-4">
-                                        <img src="{{ url('assets/frontend/images/product-thumb-14.jpg') }}" class="img-fluid rounded"
-                                            alt="Card title">
+                                        <img src="{{ url('assets/frontend/images/product-thumb-14.jpg') }}"
+                                            class="img-fluid rounded" alt="Card title">
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body py-0">
@@ -288,8 +104,8 @@
                             <div class="card mb-3 p-3 rounded-4 shadow border-0">
                                 <div class="row g-0">
                                     <div class="col-md-4">
-                                        <img src="{{ url('assets/frontend/images/product-thumb-11.jpg') }}" class="img-fluid rounded"
-                                            alt="Card title">
+                                        <img src="{{ url('assets/frontend/images/product-thumb-11.jpg') }}"
+                                            class="img-fluid rounded" alt="Card title">
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body py-0">
@@ -304,8 +120,8 @@
                             <div class="card mb-3 p-3 rounded-4 shadow border-0">
                                 <div class="row g-0">
                                     <div class="col-md-4">
-                                        <img src="{{ url('assets/frontend/images/product-thumb-12.jpg') }}" class="img-fluid rounded"
-                                            alt="Card title">
+                                        <img src="{{ url('assets/frontend/images/product-thumb-12.jpg') }}"
+                                            class="img-fluid rounded" alt="Card title">
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body py-0">
@@ -361,7 +177,8 @@
                                             </svg></a>
                                         <figure>
                                             <a href="index.html" title="Product Title">
-                                                <img src="{{ url('assets/frontend/images/thumb-bananas.png') }}" class="tab-image">
+                                                <img src="{{ url('assets/frontend/images/thumb-bananas.png') }}"
+                                                    class="tab-image">
                                             </a>
                                         </figure>
                                         <h3>Sunstar Fresh Melon Juice</h3>
@@ -407,7 +224,8 @@
                                             </svg></a>
                                         <figure>
                                             <a href="index.html" title="Product Title">
-                                                <img src="{{ url('assets/frontend/images/thumb-biscuits.png') }}" class="tab-image">
+                                                <img src="{{ url('assets/frontend/images/thumb-biscuits.png') }}"
+                                                    class="tab-image">
                                             </a>
                                         </figure>
                                         <h3>Sunstar Fresh Melon Juice</h3>
@@ -452,7 +270,8 @@
                                             </svg></a>
                                         <figure>
                                             <a href="index.html" title="Product Title">
-                                                <img src="{{ url('assets/frontend/images/thumb-cucumber.png') }}" class="tab-image">
+                                                <img src="{{ url('assets/frontend/images/thumb-cucumber.png') }}"
+                                                    class="tab-image">
                                             </a>
                                         </figure>
                                         <h3>Sunstar Fresh Melon Juice</h3>
@@ -497,7 +316,8 @@
                                             </svg></a>
                                         <figure>
                                             <a href="index.html" title="Product Title">
-                                                <img src="{{ url('assets/frontend/images/thumb-milk.png') }}" class="tab-image">
+                                                <img src="{{ url('assets/frontend/images/thumb-milk.png') }}"
+                                                    class="tab-image">
                                             </a>
                                         </figure>
                                         <h3>Sunstar Fresh Melon Juice</h3>
@@ -542,7 +362,8 @@
                                             </svg></a>
                                         <figure>
                                             <a href="index.html" title="Product Title">
-                                                <img src="{{ url('assets/frontend/images/thumb-bananas.png') }}" class="tab-image">
+                                                <img src="{{ url('assets/frontend/images/thumb-bananas.png') }}"
+                                                    class="tab-image">
                                             </a>
                                         </figure>
                                         <h3>Sunstar Fresh Melon Juice</h3>
@@ -587,7 +408,8 @@
                                             </svg></a>
                                         <figure>
                                             <a href="index.html" title="Product Title">
-                                                <img src="{{ url('assets/frontend/images/thumb-biscuits.png') }}" class="tab-image">
+                                                <img src="{{ url('assets/frontend/images/thumb-biscuits.png') }}"
+                                                    class="tab-image">
                                             </a>
                                         </figure>
                                         <h3>Sunstar Fresh Melon Juice</h3>
@@ -632,7 +454,8 @@
                                             </svg></a>
                                         <figure>
                                             <a href="index.html" title="Product Title">
-                                                <img src="{{ url('assets/frontend/images/thumb-cucumber.png') }}" class="tab-image">
+                                                <img src="{{ url('assets/frontend/images/thumb-cucumber.png') }}"
+                                                    class="tab-image">
                                             </a>
                                         </figure>
                                         <h3>Sunstar Fresh Melon Juice</h3>
@@ -677,7 +500,8 @@
                                             </svg></a>
                                         <figure>
                                             <a href="index.html" title="Product Title">
-                                                <img src="{{ url('assets/frontend/images/thumb-milk.png') }}" class="tab-image">
+                                                <img src="{{ url('assets/frontend/images/thumb-milk.png') }}"
+                                                    class="tab-image">
                                             </a>
                                         </figure>
                                         <h3>Sunstar Fresh Melon Juice</h3>
@@ -722,7 +546,8 @@
                                             </svg></a>
                                         <figure>
                                             <a href="index.html" title="Product Title">
-                                                <img src="{{ url('assets/frontend/images/thumb-bananas.png') }}" class="tab-image">
+                                                <img src="{{ url('assets/frontend/images/thumb-bananas.png') }}"
+                                                    class="tab-image">
                                             </a>
                                         </figure>
                                         <h3>Sunstar Fresh Melon Juice</h3>
@@ -767,7 +592,8 @@
                                             </svg></a>
                                         <figure>
                                             <a href="index.html" title="Product Title">
-                                                <img src="{{ url('assets/frontend/images/thumb-biscuits.png') }}" class="tab-image">
+                                                <img src="{{ url('assets/frontend/images/thumb-biscuits.png') }}"
+                                                    class="tab-image">
                                             </a>
                                         </figure>
                                         <h3>Sunstar Fresh Melon Juice</h3>
@@ -823,7 +649,8 @@
                                             </svg></a>
                                         <figure>
                                             <a href="index.html" title="Product Title">
-                                                <img src="{{ url('assets/frontend/images/thumb-cucumber.png') }}" class="tab-image">
+                                                <img src="{{ url('assets/frontend/images/thumb-cucumber.png') }}"
+                                                    class="tab-image">
                                             </a>
                                         </figure>
                                         <h3>Sunstar Fresh Melon Juice</h3>
@@ -869,7 +696,8 @@
                                             </svg></a>
                                         <figure>
                                             <a href="index.html" title="Product Title">
-                                                <img src="{{ url('assets/frontend/images/thumb-milk.png') }}" class="tab-image">
+                                                <img src="{{ url('assets/frontend/images/thumb-milk.png') }}"
+                                                    class="tab-image">
                                             </a>
                                         </figure>
                                         <h3>Sunstar Fresh Melon Juice</h3>
@@ -915,7 +743,8 @@
                                             </svg></a>
                                         <figure>
                                             <a href="index.html" title="Product Title">
-                                                <img src="{{ url('assets/frontend/images/thumb-orange-juice.png') }}" class="tab-image">
+                                                <img src="{{ url('assets/frontend/images/thumb-orange-juice.png') }}"
+                                                    class="tab-image">
                                             </a>
                                         </figure>
                                         <h3>Sunstar Fresh Melon Juice</h3>
@@ -960,7 +789,8 @@
                                             </svg></a>
                                         <figure>
                                             <a href="index.html" title="Product Title">
-                                                <img src="{{ url('assets/frontend/images/thumb-raspberries.png') }}" class="tab-image">
+                                                <img src="{{ url('assets/frontend/images/thumb-raspberries.png') }}"
+                                                    class="tab-image">
                                             </a>
                                         </figure>
                                         <h3>Sunstar Fresh Melon Juice</h3>
@@ -1005,7 +835,8 @@
                                             </svg></a>
                                         <figure>
                                             <a href="index.html" title="Product Title">
-                                                <img src="{{ url('assets/frontend/images/thumb-bananas.png') }}" class="tab-image">
+                                                <img src="{{ url('assets/frontend/images/thumb-bananas.png') }}"
+                                                    class="tab-image">
                                             </a>
                                         </figure>
                                         <h3>Sunstar Fresh Melon Juice</h3>
@@ -1050,7 +881,8 @@
                                             </svg></a>
                                         <figure>
                                             <a href="index.html" title="Product Title">
-                                                <img src="{{ url('assets/frontend/images/thumb-bananas.png') }}" class="tab-image">
+                                                <img src="{{ url('assets/frontend/images/thumb-bananas.png') }}"
+                                                    class="tab-image">
                                             </a>
                                         </figure>
                                         <h3>Sunstar Fresh Melon Juice</h3>
@@ -1104,7 +936,8 @@
                                             </svg></a>
                                         <figure>
                                             <a href="index.html" title="Product Title">
-                                                <img src="{{ url('assets/frontend/images/thumb-cucumber.png') }}" class="tab-image">
+                                                <img src="{{ url('assets/frontend/images/thumb-cucumber.png') }}"
+                                                    class="tab-image">
                                             </a>
                                         </figure>
                                         <h3>Sunstar Fresh Melon Juice</h3>
@@ -1149,7 +982,8 @@
                                             </svg></a>
                                         <figure>
                                             <a href="index.html" title="Product Title">
-                                                <img src="{{ url('assets/frontend/images/thumb-milk.png') }}" class="tab-image">
+                                                <img src="{{ url('assets/frontend/images/thumb-milk.png') }}"
+                                                    class="tab-image">
                                             </a>
                                         </figure>
                                         <h3>Sunstar Fresh Melon Juice</h3>
@@ -1194,7 +1028,8 @@
                                             </svg></a>
                                         <figure>
                                             <a href="index.html" title="Product Title">
-                                                <img src="{{ url('assets/frontend/images/thumb-tomatoes.png') }}" class="tab-image">
+                                                <img src="{{ url('assets/frontend/images/thumb-tomatoes.png') }}"
+                                                    class="tab-image">
                                             </a>
                                         </figure>
                                         <h3>Sunstar Fresh Melon Juice</h3>
@@ -1239,7 +1074,8 @@
                                             </svg></a>
                                         <figure>
                                             <a href="index.html" title="Product Title">
-                                                <img src="{{ url('assets/frontend/images/thumb-tomatoketchup.png') }}" class="tab-image">
+                                                <img src="{{ url('assets/frontend/images/thumb-tomatoketchup.png') }}"
+                                                    class="tab-image">
                                             </a>
                                         </figure>
                                         <h3>Sunstar Fresh Melon Juice</h3>
@@ -1284,7 +1120,8 @@
                                             </svg></a>
                                         <figure>
                                             <a href="index.html" title="Product Title">
-                                                <img src="{{ url('assets/frontend/images/thumb-bananas.png') }}" class="tab-image">
+                                                <img src="{{ url('assets/frontend/images/thumb-bananas.png') }}"
+                                                    class="tab-image">
                                             </a>
                                         </figure>
                                         <h3>Sunstar Fresh Melon Juice</h3>
@@ -1329,7 +1166,8 @@
                                             </svg></a>
                                         <figure>
                                             <a href="index.html" title="Product Title">
-                                                <img src="{{ url('assets/frontend/images/thumb-bananas.png') }}" class="tab-image">
+                                                <img src="{{ url('assets/frontend/images/thumb-bananas.png') }}"
+                                                    class="tab-image">
                                             </a>
                                         </figure>
                                         <h3>Sunstar Fresh Melon Juice</h3>
@@ -1491,7 +1329,8 @@
                                 </svg></a>
                             <figure>
                                 <a href="index.html" title="Product Title">
-                                    <img src="{{ url('assets/frontend/images/thumb-tomatoketchup.png') }}" class="tab-image">
+                                    <img src="{{ url('assets/frontend/images/thumb-tomatoketchup.png') }}"
+                                        class="tab-image">
                                 </a>
                             </figure>
                             <h3>Sunstar Fresh Melon Juice</h3>
@@ -1652,7 +1491,8 @@
                                 </svg></a>
                             <figure>
                                 <a href="index.html" title="Product Title">
-                                    <img src="{{ url('assets/frontend/images/thumb-tomatoketchup.png') }}" class="tab-image">
+                                    <img src="{{ url('assets/frontend/images/thumb-tomatoketchup.png') }}"
+                                        class="tab-image">
                                 </a>
                             </figure>
                             <h3>Sunstar Fresh Melon Juice</h3>
@@ -1894,7 +1734,8 @@
                                 </svg></a>
                             <figure>
                                 <a href="index.html" title="Product Title">
-                                    <img src="{{ url('assets/frontend/images/thumb-tomatoketchup.png') }}" class="tab-image">
+                                    <img src="{{ url('assets/frontend/images/thumb-tomatoketchup.png') }}"
+                                        class="tab-image">
                                 </a>
                             </figure>
                             <h3>Sunstar Fresh Melon Juice</h3>
@@ -2053,7 +1894,8 @@
                                 </svg></a>
                             <figure>
                                 <a href="index.html" title="Product Title">
-                                    <img src="{{ url('assets/frontend/images/thumb-tomatoketchup.png') }}" class="tab-image">
+                                    <img src="{{ url('assets/frontend/images/thumb-tomatoketchup.png') }}"
+                                        class="tab-image">
                                 </a>
                             </figure>
                             <h3>Sunstar Fresh Melon Juice</h3>
@@ -2248,7 +2090,8 @@
                                 </svg></a>
                             <figure>
                                 <a href="index.html" title="Product Title">
-                                    <img src="{{ url('assets/frontend/images/thumb-tomatoketchup.png') }}" class="tab-image">
+                                    <img src="{{ url('assets/frontend/images/thumb-tomatoketchup.png') }}"
+                                        class="tab-image">
                                 </a>
                             </figure>
                             <h3>Sunstar Fresh Melon Juice</h3>
@@ -2407,7 +2250,8 @@
                                 </svg></a>
                             <figure>
                                 <a href="index.html" title="Product Title">
-                                    <img src="{{ url('assets/frontend/images/thumb-tomatoketchup.png') }}" class="tab-image">
+                                    <img src="{{ url('assets/frontend/images/thumb-tomatoketchup.png') }}"
+                                        class="tab-image">
                                 </a>
                             </figure>
                             <h3>Sunstar Fresh Melon Juice</h3>
@@ -2548,7 +2392,8 @@
                 <article class="post-item card border-0 shadow-sm p-3">
                     <div class="image-holder zoom-effect">
                         <a href="#">
-                            <img src="{{ url('assets/frontend/images/post-thumb-1.jpg') }}" alt="post" class="card-img-top">
+                            <img src="{{ url('assets/frontend/images/post-thumb-1.jpg') }}" alt="post"
+                                class="card-img-top">
                         </a>
                     </div>
                     <div class="card-body">
@@ -2575,7 +2420,8 @@
                 <article class="post-item card border-0 shadow-sm p-3">
                     <div class="image-holder zoom-effect">
                         <a href="#">
-                            <img src="{{ url('assets/frontend/images/post-thumb-2.jpg') }}" alt="post" class="card-img-top">
+                            <img src="{{ url('assets/frontend/images/post-thumb-2.jpg') }}" alt="post"
+                                class="card-img-top">
                         </a>
                     </div>
                     <div class="card-body">
@@ -2602,7 +2448,8 @@
                 <article class="post-item card border-0 shadow-sm p-3">
                     <div class="image-holder zoom-effect">
                         <a href="#">
-                            <img src="{{ url('assets/frontend/images/post-thumb-3.jpg') }}" alt="post" class="card-img-top">
+                            <img src="{{ url('assets/frontend/images/post-thumb-3.jpg') }}" alt="post"
+                                class="card-img-top">
                         </a>
                     </div>
                     <div class="card-body">
@@ -2632,11 +2479,13 @@
 <section class="py-5 my-5">
     <div class="container-fluid">
 
-        <div class="bg-warning py-5 rounded-5" style="background-image: url({{ url('assets/frontend/images/bg-pattern-2.png') }}) no-repeat;">
+        <div class="bg-warning py-5 rounded-5"
+            style="background-image: url({{ url('assets/frontend/images/bg-pattern-2.png') }}) no-repeat;">
             <div class="container">
                 <div class="row">
                     <div class="col-md-4">
-                        <img src="{{ url('assets/frontend/images/phone.png') }}" alt="phone" class="image-float img-fluid">
+                        <img src="{{ url('assets/frontend/images/phone.png') }}" alt="phone"
+                            class="image-float img-fluid">
                     </div>
                     <div class="col-md-8">
                         <h2 class="my-5">Shop faster with foodmart App</h2>
