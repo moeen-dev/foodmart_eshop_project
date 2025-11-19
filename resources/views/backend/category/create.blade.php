@@ -1,7 +1,7 @@
 @extends('backend.app')
 @section('title', 'Create Category')
 @section('content')
-@push('style')
+@push('styles')
 <link rel="stylesheet" href="{{ asset('assets/backend/modules/dropify/css/dropify.css') }}">
 @endpush
 
@@ -42,7 +42,7 @@
 
                             <div class="form-group">
                                 <label for="category_img">Category Image <span class="text-danger">*</span></label>
-                                <input type="file" class="category_img" name="category_img" id="category_img" required>
+                                <input type="file" class="dropify" name="category_img" id="category_img" data-allowed-file-extensions="pdf png psd" required>
                             </div>
 
                             <button type="submit" name="submit" class="btn btn-primary">Save</button>
@@ -54,10 +54,11 @@
     </div>
 </section>
 @push('scripts')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="{{ asset('assets/backend/modules/dropify/js/dropify.js') }}"></script>
 <script>
     // Dropify
-        $('.category_img').dropify();
+        $('.dropify').dropify();
 
         // Text for slug
         $('#category_name').keyup(function() {
