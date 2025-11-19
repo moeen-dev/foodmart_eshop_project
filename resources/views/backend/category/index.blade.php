@@ -21,10 +21,12 @@
             <div class="col-12 col-md-12 col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Striped</h4>
+                        <h4>Category List</h4>
                     </div>
                     <div class="card-body">
-                        <div class="section-title mt-0">Light</div>
+                        <div class="section-title mt-0">
+                            <a href="{{ route('product-category.create') }}" class="btn btn-primary">Add New Category</a>
+                        </div>
                         <table class="table table-border table-striped" id="dataTable">
                             <thead>
                                 <tr>
@@ -47,7 +49,8 @@
                                     <td>{{ $category->category_name }}</td>
                                     <td>{{ $category->category_slug}}</td>
                                     <td class="d-flex justify-content-center gap-3">
-                                        <a href="" class="btn btn-primary mr-2" data-toogle="tooltip"
+
+                                        <a href="{{ route('product-category.edit', $category->id ) }}" class="btn btn-primary mr-2" data-toogle="tooltip"
                                             title="Edit Category">Edit</a>
                                             
                                         {{-- Delete Form --}}

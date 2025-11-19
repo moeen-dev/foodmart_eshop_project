@@ -42,10 +42,14 @@
 
                             <div class="form-group">
                                 <label for="category_img">Category Image <span class="text-danger">*</span></label>
-                                <input type="file" class="dropify" name="category_img" id="category_img" data-allowed-file-extensions="pdf png psd" required>
+                                <input type="file" class="dropify" name="category_img" id="category_img"
+                                    data-allowed-file-extensions="png jped jpg webp" required>
                             </div>
 
-                            <button type="submit" name="submit" class="btn btn-primary">Save</button>
+                            <div class="d-flex justify-content-end">
+                                <button type="submit" class="btn btn-info mr-2" onclick="window.history.back()">Go Back to Index</button>
+                                <button type="submit" name="submit" class="btn btn-primary">Save</button>
+                            </div>
                         </form>
                     </div>
                 </div>
