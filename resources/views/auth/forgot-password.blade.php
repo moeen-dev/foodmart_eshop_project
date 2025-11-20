@@ -17,6 +17,8 @@
 
                     <div class="card-body">
                         @if (session('status'))
+                        <p class="text-success">{{ session('status') }}</p>
+                        @else
                         <p class="text-danger">{{ session('status') }}</p>
                         @endif
                         <form method="POST" action="{{ route('password.email') }}" class="needs-validation" novalidate>
