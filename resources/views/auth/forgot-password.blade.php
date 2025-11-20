@@ -33,6 +33,10 @@
                             </div>
 
                             <div class="form-group">
+                                <a href="{{ route('login') }}" class="text-primary">Go to Login?</a>
+                            </div>
+
+                            <div class="form-group">
                                 <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
                                     Send Reaset Link
                                 </button>
