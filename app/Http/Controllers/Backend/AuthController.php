@@ -14,7 +14,7 @@ class AuthController extends Controller
             flash()->addSuccess('You are already logged in!');
             return redirect()->route('admin.dashboard');
         }
-        return view('backend.auth.login');
+        return view('backend.layouts.auth.login');
     }
 
     public function authenticate(Request $request)

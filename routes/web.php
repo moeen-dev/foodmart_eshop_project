@@ -22,17 +22,15 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/category', [CategoryController::class, 'index'])->name('frontend.category');
 
 
-Route::prefix('admin')->group(function () {
-    Route::get('/', function() {
-        return redirect()->route('admin.login');
-    });
-    // Admin login route
-    Route::get('/admin-login', [AuthController::class, 'login'])->name('admin.login');
-    Route::post('/admin-login', [AuthController::class, 'authenticate'])->name('admin.authenticate');
-    Route::post('/admin-logout', [AuthController::class, 'logout'])->name('admin.logout');
+// Redirect guests to login
+Route::get('/dashboard', function () {
+    return redirect()->route('admin.dashboard'); // Optional: redirect to admin dashboard
+})->middleware(['auth'])->name('dashboard');
 
-    Route::middleware('admin.auth')->group(function () {
-        Route::get('/admin-dashboard', [BackendHomeController::class, 'index'])->name('admin.dashboard');
-        Route::resource('/product-category', BackendCategoryController::class);
-    });
+// Admin routes
+Route::prefix('admin')->middleware(['auth', 'admin.auth'])->group(function () {
+    Route::get('/dashboard', [BackendHomeController::class, 'index'])->name('admin.dashboard');
+    Route::resource('/product-category', BackendCategoryController::class);
 });
+
+require __DIR__ . '/auth.php';

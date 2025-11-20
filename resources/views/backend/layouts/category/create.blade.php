@@ -1,4 +1,4 @@
-@extends('backend.app')
+@extends('backend.dashboard')
 @section('title', 'Create Category')
 @section('content')
 @push('styles')

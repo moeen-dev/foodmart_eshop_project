@@ -1,4 +1,4 @@
-@extends('backend.app')
+@extends('backend.dashboard')
 @section('title', 'Home')
 @section('content')
 <section class="section">

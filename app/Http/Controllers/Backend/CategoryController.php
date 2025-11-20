@@ -15,7 +15,7 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::latest()->get();
-        return view('backend.category.index', compact('categories'));
+        return view('backend.layouts.category.index', compact('categories'));
     }
 
     /**
@@ -23,7 +23,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('backend.category.create');
+        return view('backend.layouts.category.create');
     }
 
     /**
@@ -95,7 +95,7 @@ class CategoryController extends Controller
     public function edit(string $id)
     {
         $category = Category::findOrFail($id);
-        return view('backend.category.edit', compact('category'));
+        return view('backend.layouts.category.edit', compact('category'));
     }
 
     /**
