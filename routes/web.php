@@ -22,10 +22,10 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/category', [CategoryController::class, 'index'])->name('frontend.category');
 
 
-// Redirect guests to login
 Route::get('/dashboard', function () {
-    return redirect()->route('admin.dashboard'); // Optional: redirect to admin dashboard
-})->middleware(['auth'])->name('dashboard');
+    return redirect()->route('admin.dashboard');
+});
+
 
 // Admin routes
 Route::prefix('admin')->middleware(['auth', 'admin.auth'])->group(function () {

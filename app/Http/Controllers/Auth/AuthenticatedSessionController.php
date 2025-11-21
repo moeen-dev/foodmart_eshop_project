@@ -29,6 +29,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
+        flash()->addSuccess('Welcome, Login succeeded.');
         return redirect()->intended(RouteServiceProvider::HOME);
     }
 
@@ -42,7 +43,8 @@ class AuthenticatedSessionController extends Controller
         $request->session()->invalidate();
 
         $request->session()->regenerateToken();
-
+        
+        flash()->addSuccess('Log out Succeeded!');
         return redirect()->route('admin.dashboard');
     }
 }
