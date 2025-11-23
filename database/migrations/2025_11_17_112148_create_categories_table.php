@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('category_name');
             $table->string('category_slug');
             $table->string('category_img');
+            $table->boolean('category_status')->default(true);
             $table->timestamps();
         });
     }
