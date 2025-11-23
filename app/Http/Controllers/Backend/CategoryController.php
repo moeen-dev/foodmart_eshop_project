@@ -155,7 +155,8 @@ class CategoryController extends Controller
 
             return redirect()->back()->withInput();
         } catch (\Exception $e) {
-            flash()->addError('Error: ' . $e->getMessage());
+            Log::error('Category update error:' . $e->getMessage());
+            flash()->addError('Category update error, Please try again Later');
             return redirect()->back()->withInput();
         }
     }
@@ -165,22 +166,23 @@ class CategoryController extends Controller
      */
     public function destroy(string $id)
     {
+        $category = Category::findOrFail($id);
+
+        $filename = $category->category_img;
+        $imagePath = public_path('upload/images/' . $filename);
+
+        if (file_exists($imagePath)) {
+            unlink($imagePath);
+        }
+
         try {
-            $category = Category::findOrFail($id);
-
-            $filename = $category->category_img;
-            $imagePath = public_path('upload/images/' . $filename);
-
-            if (file_exists($imagePath)) {
-                unlink($imagePath);
-            }
-
             $category->delete();
 
-            flash()->addSuccess('Deleted Success');
+            flash()->addSuccess('Category deleted successfully!');
             return redirect()->back();
         } catch (\Exception $e) {
-            flash()->addError('Error: ' . $e->getMessage());
+            Log::error('Category delete error:' . $e->getMessage());
+            flash()->addError('Category delete error, Please try again Later');
             return redirect()->back()->withInput();
         }
     }
