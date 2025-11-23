@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\ValidationException;
 
 class CategoryController extends Controller
@@ -31,35 +32,34 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate(
+            [
+                'category_name' => 'required|string|max:255|unique:categories,category_name',
+                'category_slug' => 'required|unique:categories,category_slug',
+                'category_img' => 'required|image|mimes:jpg,jpeg,png,webp|max:2048'
+            ],
+            [
+                'category_name.required' => 'Please enter a category name.',
+                'category_name.unique' => 'This category name already exists.',
+
+                'category_slug.required' => 'Category slug is required.',
+                'category_slug.unique' => 'This category slug already exists.',
+
+                'category_img.required' => 'Please enter a category image.',
+                'category_img.image' => 'The upload file must be an image.',
+                'category_img.mimes' => 'Image must be JPG, JPEG, PNG and WEBP.',
+            ]
+        );
+
+        if ($request->hasFile('category_img')) {
+            $file = $request->file('category_img');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '-cat-img-.' . $extension;
+            $file->move('upload/images/', $filename);
+            $validated['category_img'] = $filename;
+        }
+
         try {
-            $validated = $request->validate(
-                [
-                    'category_name' => 'required|string|max:255|unique:categories,category_name',
-                    'category_slug' => 'required|unique:categories,category_slug',
-                    'category_img' => 'required|image|mimes:jpg,jpeg,png,webp|max:2048'
-                ],
-                [
-                    'category_name.required' => 'Please enter a category name.',
-                    'category_name.unique' => 'This category name already exists.',
-
-                    'category_slug.required' => 'Category slug is required.',
-                    'category_slug.unique' => 'This category slug already exists.',
-
-                    'category_img.required' => 'Please enter a category image.',
-                    'category_img.image' => 'The upload file must be an image.',
-                    'category_img.mimes' => 'Image must be JPG, JPEG, PNG and WEBP.',
-                ]
-            );
-
-            if ($request->hasFile('category_img')) {
-                $file = $request->file('category_img');
-                $extension = $file->getClientOriginalExtension();
-                $filename = time() . '-cat-img-.' . $extension;
-                $file->move('upload/images/', $filename);
-                $validated['category_img'] = $filename;
-            }
-
-
             // Store Category
             Category::create($validated);
 
@@ -76,7 +76,8 @@ class CategoryController extends Controller
 
             return redirect()->back()->withInput();
         } catch (\Exception $e) {
-            flash()->addError('Error: ' . $e->getMessage());
+            Log::error('Category create error:' . $e->getMessage());
+            flash()->addError('Category create error, Please try again Later');
             return redirect()->back()->withInput();
         }
     }
@@ -103,42 +104,41 @@ class CategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        try {
-            $category = Category::findOrFail($id);
+        $category = Category::findOrFail($id);
 
-            $validated = $request->validate(
-                [
-                    'category_name' => 'required|string|max:255|unique:categories,category_name,' . $id,
-                    'category_slug' => 'required|unique:categories,category_slug,' . $id,
-                    'category_img' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048'
-                ],
-                [
-                    'category_name.required' => 'Please enter a category name.',
-                    'category_name.unique' => 'This category name already exists.',
+        $validated = $request->validate(
+            [
+                'category_name' => 'required|string|max:255|unique:categories,category_name,' . $id,
+                'category_slug' => 'required|unique:categories,category_slug,' . $id,
+                'category_img' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048'
+            ],
+            [
+                'category_name.required' => 'Please enter a category name.',
+                'category_name.unique' => 'This category name already exists.',
 
-                    'category_slug.required' => 'Category slug is required.',
-                    'category_slug.unique' => 'This category slug already exists.',
+                'category_slug.required' => 'Category slug is required.',
+                'category_slug.unique' => 'This category slug already exists.',
 
-                    'category_img.image' => 'The upload file must be an image.',
-                    'category_img.mimes' => 'Image must be JPG, JPEG, PNG and WEBP.',
-                ]
-            );
+                'category_img.image' => 'The upload file must be an image.',
+                'category_img.mimes' => 'Image must be JPG, JPEG, PNG and WEBP.',
+            ]
+        );
 
-            if ($request->hasFile('category_img')) {
+        if ($request->hasFile('category_img')) {
 
-                if ($category->category_img && file_exists('upload/images/' . $category->category_img)) {
-                    unlink('upload/images/' . $category->category_img);
-                }
-
-
-                $file = $request->file('category_img');
-                $extension = $file->getClientOriginalExtension();
-                $filename = time() . '-cat-img.' . $extension;
-                $file->move('upload/images/', $filename);
-                $validated['category_img'] = $filename;
+            if ($category->category_img && file_exists('upload/images/' . $category->category_img)) {
+                unlink('upload/images/' . $category->category_img);
             }
 
 
+            $file = $request->file('category_img');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '-cat-img.' . $extension;
+            $file->move('upload/images/', $filename);
+            $validated['category_img'] = $filename;
+        }
+
+        try {
             // Store Category
             $category->update($validated);
 
