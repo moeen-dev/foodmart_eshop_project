@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('product_name');
             $table->string('product_slug');
             $table->string('product_img');
+            $table->boolean('product_status')->default(0);
+            $table->decimal('product_price', 10, 2);
             $table->timestamps();
         });
     }
