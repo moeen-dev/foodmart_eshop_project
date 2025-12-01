@@ -5,6 +5,7 @@ use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\CategoryController;
 use App\Http\Controllers\Backend\HomeController as BackendHomeController;
 use App\Http\Controllers\Backend\CategoryController as BackendCategoryController;
+use App\Http\Controllers\Backend\ProductController as BackendProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,6 +32,7 @@ Route::get('/dashboard', function () {
 Route::prefix('admin')->middleware(['auth', 'admin.auth'])->group(function () {
     Route::get('/dashboard', [BackendHomeController::class, 'index'])->name('admin.dashboard');
     Route::resource('/product-category', BackendCategoryController::class);
+    Route::resource('/product', BackendProductController::class);
 });
 
 require __DIR__ . '/auth.php';
