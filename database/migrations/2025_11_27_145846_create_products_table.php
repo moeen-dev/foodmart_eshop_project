@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('product_stock');
             $table->boolean('product_status')->default(0);
             $table->decimal('product_price', 10, 2);
+            $table->longText('product_description');
             $table->timestamps();
 
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');

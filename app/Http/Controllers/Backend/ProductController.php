@@ -12,7 +12,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        return view('backend.layouts.product.index');
     }
 
     /**
@@ -20,7 +20,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.layouts.product.create');
     }
 
     /**

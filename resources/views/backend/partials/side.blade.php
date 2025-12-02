@@ -13,7 +13,7 @@
                         class="fas fa-fire"></i><span>Dashboard</span></a>
             </li>
 
-            <li class="dropdown {{ Route::is('product-category.*') ? 'active' : ''}}">
+            <li class="dropdown {{ request()->routeIs('product-category.*') ? 'active' : ''}}">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Category</span></a>
                 <ul class="dropdown-menu">
                     <li class="{{ Route::is('product-category.index') ? 'active' : ''}}"><a class="nav-link"
@@ -23,13 +23,13 @@
                 </ul>
             </li>
 
-            <li class="dropdown {{ Route::is('product.*') ? 'active' : ''}}">
-                <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Category</span></a>
+            <li class="dropdown {{ request()->routeIs('product.*') ? 'active' : '' }}">
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Product</span></a>
                 <ul class="dropdown-menu">
                     <li class="{{ Route::is('product.index') ? 'active' : ''}}"><a class="nav-link"
-                            href="{{ route('product.index') }}">All Category</a></li>
+                            href="{{ route('product.index') }}">All Products</a></li>
                     <li class="{{ Route::is('product.create') ? 'active' : ''}}"><a class="nav-link"
-                            href="{{ route('product.create') }}">Create Category</a></li>
+                            href="{{ route('product.create') }}">Create Product</a></li>
                 </ul>
             </li>
 
