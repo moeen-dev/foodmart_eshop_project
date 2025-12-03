@@ -27,20 +27,20 @@
                             @csrf
                             <div class="row">
                                 <div class="form-group col-md-6">
-                                    <label>Category Title <span class="text-danger">*</span></label>
+                                    <label>Product Title <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" name="product_name" id="product_name"
                                         required>
                                 </div>
 
                                 <div class="form-group col-md-6">
-                                    <label>Category Slug <span class="text-danger">*</span></label>
+                                    <label>Product Slug <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" name="product_slug" id="product_slug"
                                         required>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="category_img">Category Image <span class="text-danger">*</span></label>
+                                <label for="category_img">Product Image <span class="text-danger">*</span></label>
                                 <input type="file" class="dropify" name="category_img" id="category_img"
                                     data-allowed-file-extensions="png jpeg jpg webp" required>
                             </div>
