@@ -40,9 +40,25 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="category_img">Product Image <span class="text-danger">*</span></label>
-                                <input type="file" class="dropify" name="category_img" id="category_img"
+                                <label for="product_img">Product Image <span class="text-danger">*</span></label>
+                                <input type="file" class="dropify" name="product_img" id="product_img"
                                     data-allowed-file-extensions="png jpeg jpg webp" required>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label for="product_status">Product Status <span class="text-danger">*</span></label>
+                                    <select name="product_status" id="product_status" class="form-control">
+                                        <option value="" selected disabled>--- Please Select an Option ---</option>
+                                        <option value="1"> In Stock </option>
+                                        <option value="0"> Out of Stock </option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                    <label for="product_stock">Product Stock <span class="text-danger">*</span></label>
+                                    <input type="number" name="product_stock" id="product_stock" class="form-control">
+                                </div>
                             </div>
 
                             <div class="d-flex justify-content-end">
