@@ -46,7 +46,7 @@
                             </div>
 
                             <div class="row">
-                                <div class="form-group col-md-6">
+                                <div class="form-group col-md-4">
                                     <label for="product_status">Product Status <span class="text-danger">*</span></label>
                                     <select name="product_status" id="product_status" class="form-control">
                                         <option value="" selected disabled>--- Please Select an Option ---</option>
@@ -55,9 +55,14 @@
                                     </select>
                                 </div>
 
-                                <div class="form-group col-md-6">
+                                <div class="form-group col-md-4">
                                     <label for="product_stock">Product Stock <span class="text-danger">*</span></label>
                                     <input type="number" name="product_stock" id="product_stock" class="form-control">
+                                </div>
+
+                                <div class="form-group col-md-4">
+                                    <label for="product_price">Product Price <span class="text-danger">*</span></label>
+                                    <input type="number" name="product_price" id="product_price" class="form-control">
                                 </div>
                             </div>
 
