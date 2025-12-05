@@ -66,6 +66,11 @@
                                 </div>
                             </div>
 
+                            <div class="form-group">
+                                <label for="product_description">Product Image <span class="text-danger">*</span></label>
+                                <textarea class="summernote" name="product_description" id="product_description" cols="30" rows="10"></textarea>
+                            </div>
+
                             <div class="d-flex justify-content-end">
                                 <button type="submit" class="btn btn-info mr-2" onclick="window.history.back()">Go Back
                                     to Index</button>
@@ -79,7 +84,7 @@
     </div>
 </section>
 @push('scripts')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> --}}
 <script src="{{ asset('assets/backend/modules/dropify/js/dropify.js') }}"></script>
 <script>
     // Dropify
